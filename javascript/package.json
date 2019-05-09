@@ -1,8 +1,8 @@
 {
-  "name": "code-compilations",
+  "name": "js-random-codes",
   "version": "1.0.0",
-  "description": "random codes",
-  "main": "index.js",
+  "description": "",
+  "main": "raw-js.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
