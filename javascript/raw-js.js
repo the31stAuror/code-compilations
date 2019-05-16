@@ -1,3 +1,9 @@
+const _ = require("lodash");
+const join = require("lodash/fp/join");
+const map = require("lodash/fp/map");
+const split = require("lodash/fp/split");
+const compose = require("lodash/fp/compose");
+
 let ARRAY = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 let COUNTER = 0;
 
@@ -23,6 +29,9 @@ let COUNTER = 0;
 // console.log(counter);
 //
 // console.log(Date.now());
+// console.log(Math.random());
+const time = () => new Date().toLocaleTimeString();
+console.log(time);
 
 
 // referentially transparent
@@ -175,3 +184,47 @@ class Student extends Person {
 //
 // let starksSentences = starks.map(stark => `${stark.name} is ${stark.status}.`);
 // console.log(starksSentences);
+
+// pure functions
+// mapping
+const maxValue = Math.max(8, 10, 7);
+// console.log("maxValue:", maxValue);
+
+// referential transparency
+const double = x => x * 2;
+// console.log("double:", double(5));
+// console.log("double:", 10);
+
+// immutability
+const immutableAddToList = (list, item, quantity) => {
+  const newList = _.cloneDeep(list);
+  newList.items.push({ item, quantity });
+  return newList;
+};
+
+let list = {
+  items: [
+    { item: 'Fray', quantity: 10 },
+    { item: 'Clegane', quantity: 1 }
+  ]
+};
+console.log("list.items:\n", list.items);
+const newList = immutableAddToList(list, 'Lannister', 2);
+console.log("list.items:\n", list.items);
+console.log("newList.items:\n", newList.items);
+
+
+let item = {
+    name: "piattos"
+};
+const setPrice = (item, price) => Object.assign(item, { price });
+setPrice(item, 10);
+console.log("item:", item);
+
+// function composition: f(g(x))
+
+// avoid shared state
+
+// avoid mutating state
+
+// avoid side effects
